@@ -35,3 +35,12 @@ A good CI pipeline typically includes unit tests, integration tests, styling che
 //* writing unit tests*//
 // Like staticcheck, gosec is not part of the Go toolchain. We'll need to install it in our remote runner before we can use it.
 
+//SECURITY REVIEW
+Just because our codebase passes all of our tests, linters, and security checks doesn't mean it's "perfect" (or frankly even that it's "good").
+
+These kinds of automated tests can help us eliminate ~80% of the most obvious bugs, stylistic anti-patterns, and security vulnerabilities, but they can't catch everything. We still need to take care to write good, secure code.
+
+CI is an amazing tool to automate a lot of the stuff you'd manually check anyway. However, just because the checks pass doesn't mean your code is perfect. You still need to use your brain!
+
+
+
