@@ -23,9 +23,15 @@ func respondWithJSON(w http.ResponseWriter, code int, payload interface{}) {
 	dat, err := json.Marshal(payload)
 	if err != nil {
 		log.Printf("Error marshalling JSON: %s", err)
-		w.WriteHeader(500)
+		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
 	w.WriteHeader(code)
-	w.Write(dat)
+	if _, err := w.Write(dat); err != nil {
+		// Handle the error from w.Write
+		log.Printf("Error writing response: %v", err)
+		// Note: At this point, the header has already been written,
+		// so it's not possible to send a different status code to the client.
+		// Depending on your application's requirements, consider logging the error or taking other appropriate actions.
+	}
 }
