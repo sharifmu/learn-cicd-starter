@@ -33,3 +33,5 @@ Our current CI doesn't do anything interesting.
 
 A good CI pipeline typically includes unit tests, integration tests, styling checks, linting checks, security checks or any other type of automated test. If any of the tests fail, the build is considered broken and the developer is notified so they can fix it.
 //* writing unit tests*//
+// Like staticcheck, gosec is not part of the Go toolchain. We'll need to install it in our remote runner before we can use it.
+
